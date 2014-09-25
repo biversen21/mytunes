@@ -8,8 +8,9 @@ var PlayerView = Backbone.View.extend({
   initialize: function() {
     var that = this;
     this.$el.on("ended", function(){
-      //instead of 1, increase the number
-      that.model.set('played', 1);
+      var playCount = that.model.get('played');
+      playCount++;
+      that.model.set('played', playCount);
     });
   },
 
