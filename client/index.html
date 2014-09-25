@@ -6,7 +6,8 @@
      <div>
         <p>Playing: </p>
         <p class='title'></p>
-     </div>
+    </div>
+    <div class='formContainer'></div>
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
     <script src="bower_components/jquery/jquery.min.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
@@ -18,6 +19,7 @@
     <script src="collections/Songs.js"></script>
     <script src="collections/SongQueue.js"></script>
     <script src="models/AppModel.js"></script>
+    <script src="router/Router.js"></script>
 
     <script src="views/PlayerView.js"></script>
     <script src="views/LibraryView.js"></script>
@@ -25,12 +27,27 @@
     <script src="views/SongQueueView.js"></script>
     <script src="views/SongQueueEntryView.js"></script>
     <script src="views/AppView.js"></script>
+    <script src="views/NewSongView.js"></script>
+
+    <script type="text/template" id="newSongTemplate">
+        <form class='newSongForm'>
+            <label>Song title</label>
+            <input type="text" name="title"></input>
+            <label>Artist</label>
+            <input type="text" name="artist"></input>
+            <label>URL</label>
+            <input type="text" name="url"></input>
+        </form>
+    </script>
 
     <script>
       $(function(){
         // set up model objects
         var library = new Songs(songData);
         var app = new AppModel({library: library});
+        var router = new Router();
+
+        var newSongView = new NewSongView();
 
         // build a view for the top level of the whole app
         var appView = new AppView({model: app});
@@ -39,5 +56,6 @@
         $('body').append(appView.render());
       });
     </script>
+    <!-- <a href="#newSong">New Song</a> -->
   </body>
 </html>
