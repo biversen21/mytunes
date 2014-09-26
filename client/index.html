@@ -4,11 +4,13 @@
     <!-- Scripts may be placed anywhere on a page. But FYI, they block rendering of elements
      below them until after the scripts load-->
      <div>
-        <p>Playing: </p>
-        <p class='title'></p>
+        <p class='playing'>Playing: <span class='title'></span></p>
     </div>
     <div class='formContainer'></div>
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link href='http://fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'>
     <script src="bower_components/jquery/jquery.min.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/backbone/backbone.js"></script>
@@ -30,15 +32,16 @@
     <script src="views/NewSongView.js"></script>
 
 
-        <form class='newSongForm'>
-            <label>Song title</label>
-            <input type="text" id="title"></input>
-            <label>Artist</label>
-            <input type="text" id="artist"></input>
-            <label>URL</label>
-            <input type="text" id="url"></input>
-            <input type="submit" >
-        </form>
+    <form class='newSongForm'>
+        <legend>Add a New Song</legend>
+        <label>Song title</label>
+        <input type="text" id="title"></input>
+        <label>Artist</label>
+        <input type="text" id="artist"></input>
+        <label>URL</label>
+        <input type="text" id="url"></input>
+        <input type="submit" class='btn-default'>
+    </form>
 
 
     <script>
@@ -82,6 +85,6 @@
         // library.add(new)
       });
     </script>
-    <a href="#new">New Song</a>
+    <!-- <a href="#new">New Song</a> -->
   </body>
 </html>

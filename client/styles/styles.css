@@ -1,4 +1,28 @@
+*{
+  font-family: Play;
+  /*background-image: url('../images/background.jpg');*/
+}
+
 #closeButton{
   height: 15px;
   width: 15px;
+}
+.newSongForm{
+  float: right;
+  padding: 20px;
+  border: 3px solid lightgray;
+  margin: 10px;
+}
+
+.playing{
+  font-size: 20px;
+  margin: 20px;
+}
+
+audio{
+  margin: 20px;
+}
+
+.title{
+  color: slategray;
 }
