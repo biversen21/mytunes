@@ -29,33 +29,59 @@
     <script src="views/AppView.js"></script>
     <script src="views/NewSongView.js"></script>
 
-    <script type="text/template" id="newSongTemplate">
+
         <form class='newSongForm'>
             <label>Song title</label>
-            <input type="text" name="title"></input>
+            <input type="text" id="title"></input>
             <label>Artist</label>
-            <input type="text" name="artist"></input>
+            <input type="text" id="artist"></input>
             <label>URL</label>
-            <input type="text" name="url"></input>
+            <input type="text" id="url"></input>
+            <input type="submit" >
         </form>
-    </script>
+
 
     <script>
       $(function(){
         // set up model objects
         var library = new Songs(songData);
         var app = new AppModel({library: library});
-        var router = new Router();
-
-        var newSongView = new NewSongView();
-
         // build a view for the top level of the whole app
         var appView = new AppView({model: app});
 
+        // var Router = Backbone.Router.extend({
+        //   routes : {
+        // var newSongView = new NewSongView();
+        //     '': 'home',
+        //     'new': 'newSong',
+        //     'playlist:id': 'changePlayList'
+        //   }
+        // });
+
+        // var router = new Router();
+
+        // router.on('route:newSong', function() {
+        //   newSongView.render();
+        //   // this.trigger('addNewSong', this);
+        // });
+
+        // Backbone.history.start();
+
         // put the view onto the screen
         $('body').append(appView.render());
+        $('form').on('submit', function(e){
+            e.preventDefault();
+            var newSong = new SongModel({
+                title: $('#title').val(),
+                artist : $('#artist').val(),
+                url: $('#url').val()
+            });
+            library.add(newSong);
+        });
+        // var new = new Model(that data)
+        // library.add(new)
       });
     </script>
-    <!-- <a href="#newSong">New Song</a> -->
+    <a href="#new">New Song</a>
   </body>
 </html>
